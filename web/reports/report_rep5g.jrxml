@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_rep5g" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ab285ce8-582e-48b0-b0ff-a4bd8fc606b8">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sql2008"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM rep_rep5 ORDER BY radif]]>
+	</queryString>
+	<field name="radif" class="java.math.BigDecimal"/>
+	<field name="vahed" class="java.lang.String"/>
+	<field name="tproblem" class="java.math.BigDecimal"/>
+	<field name="telaat" class="java.math.BigDecimal"/>
+	<field name="trahkar" class="java.math.BigDecimal"/>
+	<field name="tok" class="java.math.BigDecimal"/>
+	<field name="tnok" class="java.math.BigDecimal"/>
+	<group name="vahed">
+		<groupExpression><![CDATA[$F{vahed}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="10" width="401" height="51" forecolor="#004080" uuid="67b6b429-4f3a-48a5-838e-5452da2d03c8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" size="18"/>
+				</textElement>
+				<text><![CDATA[گراف عملکرد واحدها/کمیته ها]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="374" splitType="Stretch">
+			<bar3DChart>
+				<chart evaluationTime="Report" renderType="image">
+					<reportElement x="-10" y="8" width="580" height="352" uuid="ab8705b1-4b2a-47c5-8108-c359750b5a5c"/>
+					<chartTitle position="Top">
+						<font fontName="B Nazanin" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					</chartTitle>
+					<chartSubtitle>
+						<font fontName="B Nazanin" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					</chartSubtitle>
+					<chartLegend position="Bottom">
+						<font fontName="B Nazanin" pdfFontName="Helvetica" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					</chartLegend>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["مسئله ها"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{vahed}.trim()]]></categoryExpression>
+						<valueExpression><![CDATA[$F{tproblem}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["علتها"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{vahed}.trim()]]></categoryExpression>
+						<valueExpression><![CDATA[$F{telaat}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["راهکارها"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{vahed}.trim()]]></categoryExpression>
+						<valueExpression><![CDATA[$F{trahkar}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["تایدد شده ها"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{vahed}.trim()]]></categoryExpression>
+						<valueExpression><![CDATA[$F{tok}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["تایید نشده ها"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{vahed}.trim()]]></categoryExpression>
+						<valueExpression><![CDATA[$F{tnok}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot isShowLabels="true">
+					<plot/>
+					<itemLabel>
+						<font fontName="B Nazanin" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					</itemLabel>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat>
+							<labelFont>
+								<font fontName="B Nazanin" isPdfEmbedded="true"/>
+							</labelFont>
+						</axisFormat>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="9" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="14" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="9" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="5" splitType="Stretch"/>
+	</summary>
+</jasperReport>

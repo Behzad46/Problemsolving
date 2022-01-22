@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_telathag" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cb60a860-2afa-439c-aeab-a422cdb95600">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sql2008"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM resultx ORDER BY vazn DESC]]>
+	</queryString>
+	<field name="problemtxt" class="java.lang.String"/>
+	<field name="elaat" class="java.lang.String"/>
+	<field name="vazn" class="java.lang.Double"/>
+	<field name="code_id" class="java.lang.String"/>
+	<group name="problemtxt">
+		<groupExpression><![CDATA[$F{problemtxt}]]></groupExpression>
+	</group>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{problemtxt}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="564" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="0" width="401" height="28" forecolor="#004080" uuid="fcdc10ad-6cc5-49de-9f79-65eaa24d3c5a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="B Nazanin" size="18"/>
+				</textElement>
+				<text><![CDATA[گراف مهمترین علتها برای هر مسئله]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="38" width="435" height="21" uuid="58f5012e-0cbf-4c35-9a5d-d5a1e831dba5"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{problemtxt}.trim()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="481" y="39" width="56" height="20" uuid="c1125d94-aab1-45d0-a521-f76733e4943a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="B Nazanin" size="11"/>
+				</textElement>
+				<text><![CDATA[شرح مسئله:]]></text>
+			</staticText>
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="72" width="555" height="492" uuid="708fbb8d-2484-4e4f-ad26-c370a3c5d10c"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset maxCount="60">
+					<keyExpression><![CDATA[$F{code_id}.trim()]]></keyExpression>
+					<valueExpression><![CDATA[$F{vazn}]]></valueExpression>
+					<labelExpression><![CDATA[$F{vazn}.toString()]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="6" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="70" height="30" uuid="35216bbe-d492-4a51-890d-2b5c25ae9f27"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{code_id}.trim()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="0" width="20" height="20" uuid="83380e13-67eb-4643-84f1-209b2a1d64c8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="0" width="442" height="40" uuid="bdd6757a-6ea7-463e-9fc6-00441e6b4f6b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="B Nazanin" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{elaat}.trim()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="11" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="15" splitType="Stretch"/>
+	</summary>
+</jasperReport>

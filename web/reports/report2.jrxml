@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a40fa5a7-fa16-4100-ae65-e22b4052dc8d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM resultx ORDER BY vazn DESC]]>
+	</queryString>
+	<field name="radif" class="java.math.BigDecimal"/>
+	<field name="problemtxt" class="java.lang.String"/>
+	<field name="elaat" class="java.lang.String"/>
+	<field name="id" class="java.lang.String"/>
+	<field name="code_id" class="java.lang.String"/>
+	<field name="vazn" class="java.lang.String"/>
+	<group name="problemtxt">
+		<groupExpression><![CDATA[$F{problemtxt}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="6853e68d-0f71-4218-9749-027bc74e0fcc"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" isPrintRepeatedValues="false" x="2" y="0" width="479" height="24" forecolor="#FFFFFF" uuid="3615fa35-2388-4671-8333-937d11bcd4c0"/>
+						<textElement textAlignment="Center">
+							<font fontName="B Nazanin" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{problemtxt}.trim()]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement x="456" y="0" width="99" height="132" uuid="38c3db52-f483-4619-81d2-02a7424270dc"/>
+				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="d6d95708-af2c-45ed-9256-3a8c16772233"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="286cd42c-3576-4274-aa37-485e65e29ea8"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="B Nazanin" size="36" isBold="false" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[گزارش مهمترین علتها]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="352051a6-f4c1-461c-8102-1eb68c8c1a2a"/>
+					<textElement>
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Cherry SubTitle]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="58ffe5dd-ddc3-4188-82b7-413f6c012a96"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="307" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="9aae2c3a-ce1b-46a0-af98-799911e70596"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="7" width="61" height="18" forecolor="#000000" uuid="9f416b18-cfe7-43cd-bb9b-8edd1e9b0fef"/>
+				<textElement textAlignment="Center">
+					<font fontName="B Nazanin" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ردیف]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="61" y="7" width="370" height="18" forecolor="#000000" uuid="52ebd63a-94ab-48ac-87cc-f4bf1c74cffb"/>
+				<textElement textAlignment="Center">
+					<font fontName="B Nazanin" isBold="false"/>
+				</textElement>
+				<text><![CDATA[علت]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="431" y="8" width="60" height="18" forecolor="#000000" uuid="470789aa-9dde-43e8-81f6-7295bcf0a85e"/>
+				<textElement textAlignment="Center">
+					<font fontName="B Nazanin" isBold="false"/>
+				</textElement>
+				<text><![CDATA[وزن]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="491" y="7" width="61" height="18" forecolor="#000000" uuid="64b2c559-3ef4-4165-ba27-db1ef1b50a9e"/>
+				<textElement textAlignment="Center">
+					<font fontName="B Nazanin" isBold="false"/>
+				</textElement>
+				<text><![CDATA[کد علت]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="05026403-436e-44e7-bad4-c13f5307e425"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="61" height="18" uuid="916e95be-65ca-4ab7-85a3-da51baef0cd8"/>
+					<textElement textAlignment="Center">
+						<font fontName="B Nazanin" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{radif}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="61" y="0" width="370" height="18" uuid="1bd60b99-a2d2-4ac0-a6d1-f1a3394418ae"/>
+					<textElement textAlignment="Right">
+						<font fontName="B Nazanin" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{elaat}.trim()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="431" y="0" width="60" height="18" uuid="bb57d1ab-ee94-4f0c-88c6-4739babece3d"/>
+					<textElement textAlignment="Center">
+						<font fontName="B Nazanin" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vazn}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="491" y="0" width="61" height="18" uuid="91541d14-807c-4b62-8ead-1d081e598649"/>
+					<textElement textAlignment="Center">
+						<font fontName="B Nazanin" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{code_id}.trim()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="70dca7d0-7029-4790-8452-55bcc1f115da"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="d9f2da4b-b659-4179-96c9-30409d21515a"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="73408eac-fc88-4f64-9803-bafd00c509b5"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="baea5e32-3ca8-46b3-a413-7c15ce057f05"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="02671dce-12e0-4f18-b54d-7b00519d7ed3"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

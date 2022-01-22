@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="859e37ec-3089-4a7e-8a5c-4a3ce56ba2d8">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     rep_rep7."radif" AS rep_rep7_radif,
+     rep_rep7."vahed" AS rep_rep7_vahed,
+     rep_rep7."usern" AS rep_rep7_usern,
+     rep_rep7."name" AS rep_rep7_name,
+     rep_rep7."family" AS rep_rep7_family,
+     rep_rep7."nelat" AS rep_rep7_nelat,
+     rep_rep7."nrahkar" AS rep_rep7_nrahkar,
+     rep_rep7."nvazn" AS rep_rep7_nvazn,
+     rep_rep7."dates" AS rep_rep7_dates,
+     rep_rep7."datee" AS rep_rep7_datee
+FROM
+     "dbo"."rep_rep7" rep_rep7]]>
+	</queryString>
+	<field name="rep_rep7_vahed" class="java.lang.String"/>
+	<field name="rep_rep7_usern" class="java.lang.String"/>
+	<field name="rep_rep7_name" class="java.lang.String"/>
+	<field name="rep_rep7_family" class="java.lang.String"/>
+	<field name="rep_rep7_nelat" class="java.math.BigDecimal"/>
+	<field name="rep_rep7_nrahkar" class="java.math.BigDecimal"/>
+	<field name="rep_rep7_nvazn" class="java.math.BigDecimal"/>
+	<field name="rep_rep7_dates" class="java.lang.String"/>
+	<field name="rep_rep7_datee" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
